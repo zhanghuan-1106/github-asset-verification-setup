@@ -263,7 +263,7 @@ if __name__ == "__main__":
     # ==========================
     VERIFICATION_CONFIG = {
         # 目标仓库信息
-        "target_repo": "example-repo",
+        "target_repo": "github-asset-verification-setup",
         
         # 目标文件信息
         "target_file": {
