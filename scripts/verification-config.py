@@ -296,7 +296,7 @@ if __name__ == "__main__":
         ],
         
         "commit_verification": {
-            "msg_pattern": ".",
+            "msg_pattern": "分析|报告|document|update",
             "max_commits": 5
         }
 
