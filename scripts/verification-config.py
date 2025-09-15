@@ -18,6 +18,7 @@ def load_environment() -> Tuple[Optional[str], Optional[str]]:
     """加载环境变量：GitHub访问令牌和目标组织/用户名"""
     load_dotenv(".mcp_env")
     github_token = os.environ.get("MCP_GITHUB_TOKEN")
+    print(github_token)
     github_org = os.environ.get("GITHUB_EVAL_ORG")
     return github_token, github_org
 
