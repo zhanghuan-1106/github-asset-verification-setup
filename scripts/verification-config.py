@@ -21,7 +21,6 @@ def load_environment() -> Tuple[Optional[str], Optional[str]]:
     github_org = os.environ.get("GITHUB_EVAL_ORG")
     return github_token, github_org
 
-
 def build_headers(github_token: str) -> Dict[str, str]:
     """构建GitHub API请求头（含授权信息）"""
     return {
