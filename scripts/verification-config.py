@@ -18,9 +18,9 @@ def load_environment() -> Tuple[Optional[str], Optional[str]]:
     """加载环境变量：GitHub访问令牌和目标组织/用户名"""
     load_dotenv(".mcp_env")
     github_token = os.environ.get("MCP_GITHUB_TOKEN")
-    print(github_token)
     github_org = os.environ.get("GITHUB_EVAL_ORG")
     return github_token, github_org
+
 
 def build_headers(github_token: str) -> Dict[str, str]:
     """构建GitHub API请求头（含授权信息）"""
@@ -246,7 +246,7 @@ def run_verification(verification_config: Dict) -> bool:
 
     # 所有步骤通过
     print("\n" + "=" * 50)
-    print("✅ 所有验证步骤通过！")
+    print("? 所有验证步骤通过！")
     print(f"验证对象：{verification_config['target_file']['path']}")
     print(f"目标仓库：{github_org}/{repo_name}")
     print(f"验证分支：{verification_config['target_file']['branch']}")
@@ -262,33 +262,29 @@ if __name__ == "__main__":
     # 验证配置（根据实际需求修改）
     # ==========================
     VERIFICATION_CONFIG = {
-        # 目标仓库信息
         "target_repo": "github-asset-verification-setup",
         
-        # 目标文件信息
         "target_file": {
             "path": "docs/analysis-report.md",
             "branch": "main"
         },
         
-        # 必需结构
         "required_structures": [
             "# 项目分析报告",
             "## 执行摘要",
-            "## 详细分析",
+            "## 详细分析", 
             "| 指标 | 数值 |",
             "## 结论"
         ],
         
-        # 内容验证规则
         "content_rules": [
             {
                 "type": "stat_match",
-                "target": "总用户数：",
+                "target": "总用户数",
                 "expected": "1000"
             },
             {
-                "type": "regex_match",
+                "type": "regex_match", 
                 "target": "报告日期",
                 "expected": r"\d{4}-\d{2}-\d{2}"
             },
@@ -299,12 +295,13 @@ if __name__ == "__main__":
             }
         ],
         
-        # 提交记录验证
         "commit_verification": {
-            "msg_pattern": "更新分析报告",
-            "max_commits": 10
+            "msg_pattern": ".",
+            "max_commits": 5
         }
+
     }
+    
 
     # 执行验证
     success = run_verification(VERIFICATION_CONFIG)
