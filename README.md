@@ -39,18 +39,5 @@ github-asset-verification-setup/
    ```bash
     python github_asset_verifier.py
    ```   
-## 验证预期结果
-当所有前置物料正确设置后，验证脚本应该：
-
-✅ 环境检查通过
-
-✅ 文件存在性验证通过
-
-✅ 所有必需结构验证通过
-
-✅ 所有内容规则验证通过
-
-✅ 提交记录验证通过
 
 
-✅ 返回退出码 0（成功）
